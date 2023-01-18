@@ -1,0 +1,119 @@
+
+let's go ahed with another app
+
+list view app
+where there is a custom list view which shows the list of items and then we click an item in it , it will show the detail view of that item
+
+
+step 1:create a project :
+step 2 :
+	
+	1.change the orientation to vertical into activity_main.xml.
+	2.change the constraint layout to linearlayout
+	3.add list view into the activity_main.xml file 
+	
+	so here the work of activity_main.xml is ready with all configuration
+
+Now let's go ahed with the Main_activity.java
+
+	
+	first we declare necessary member variables in the class
+			then get the listview that we have created in activity_main.xml
+		ListVIew listview;
+		create  instance using new of ArrayList of type Movie class
+				for that first we have to create the Movie class with method and properties 
+				add new java class 	
+		CustomListAdapter adapter
+
+
+			for that first we have to create the customListAdapter 
+			add new activity and named it as customListAdapter
+			now in it's .xml file we design our own view
+				change the layout constraint to linear layout
+				change the orientation to verical
+				add another linear layout
+				create your own view
+				and also set the id's of all the control.
+			now let's code for the customListAdapter
+
+				extends ArrayAdapter of type  Movie
+				declare two data member
+					Context context;
+					AraayList<Movie> movieList;
+
+				create a constructor and pass this two argument
+					do the super call .in costructor 
+					and set this two data member to the parameter(parameterized constructor)
+
+				
+				create a public method which returns View with name getView 
+				give the parameters int position,View convertView , ViewGroup parent
+				now inside the method {
+
+					set the view 
+					View view = LayoutInflater.from(context).inflate(R.customListAdapter,null,false);
+
+					now get the things that we have placed in the customListAdapter_activity.xml
+
+					ImageView ,TextView
+					set the value to the elements that we have get from the activity.xml
+					
+					return the view
+				}
+			Then come back to main activity.java
+			where we gonna code for the movieList 
+			and we add some movies  as an object 
+			instantiate the customListAdapter that we have declared earlier and pass the required  parameter
+			then set the adapter  to the listview
+					
+Note : put your all images into resource/drawable
+
+			and then first run it you can see the list of movies in your customized listview.
+
+			now whenever we click on any particular item it will show the detailed information of that movie
+			so now we create detailed view
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Now what we gonna do is that we are create a detailed view about movie so 
+	we create another activity named detailed view
+	let's first do some designing in the activity_detail.xml
+	first change the layout constraint to linearlayout
+	then change the orientation to vertical
+	then put Image view for poster 
+	and two TextView  for name and genre.
+	now here the work of the xml file is over 
+	now let's code it in DetailedActivity.java ,but before we have to set ItemClick on MainActivity's list of items which send the data of a single click movie.
+	after setting the click onItemClick we create intent set the clicked movie to intent and start activity
+	now we do code in Detailed activity
+	first get all the elements from .xml view file
+	the check for intent data
+	if we have intent data them set it into the elements
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+	
+	

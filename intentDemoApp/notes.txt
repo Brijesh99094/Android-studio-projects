@@ -1,0 +1,169 @@
+creating an intenDemo app
+
+start project 
+build gradle
+
+replacing the constraint view to LinearLayout
+remove  the textView 
+
+make orientation as vertical --- linear layout
+
+add an EditText with textPersonname type and id = editText
+
+
+adding buttons 
+
+	add button for dialing a call(it will bring dial pad )
+	add button for call
+	add button for goto site
+	add button for goto map
+	few more buttons
+
+here we have done the works of activity_main.xml us over 
+
+
+----------------------------------------------
+now the time to code 
+
+starts with Main_activity.java
+
+first declare the buttons and edittext as data members in class 
+and then get it by it's id ...given in activity_main.xml 
+
+now let's work on each and every button
+
+first works on dial button
+---------------------------
+setOnClickListner on btndial
+and  pass the paramerter new View.onclick
+and  you will get onclick method automatically
+
+now create an intent in that onclick event 
+	Intent i = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + editText.getText().toString()));
+                startActivity(i);
+
+and it works fine
+
+second works on Call button 
+----------------------------
+thre is only one new thing we're gonna do is that we're gonna check for the  permission
+so same way setOnClickListner on btncall
+and create on click event
+
+now create an intent with ACTION_CALL and give also the uri
+and this time it's not gonna work as privious one.
+
+ why.....................?
+beacause we have't given the  permission to phone that our app can use the  phone functionality.
+so we have to ask to user that he/she want to give permission to call or not
+for that we have to add the  use permission into manifest file
+
+ <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
+and then we have check the condition while  starting the activity
+that user has allowed the permission then and then we can call using our own app
+so now it is also done
+
+
+3.third we are gonna enable button to browse the thing that is written in edit text
+-----------------------------------------------------------------------------------
+same way set onclick Listener button on the btnwebsite
+and also set onclick event.
+then create intent which take two paramerter one is action and another the text from the editText
+then we have to start the activity and give the intent as parameter.
+
+note:
+-------
+after this three functionality i have faced internet issue ....the internet is not working inside the emulator
+and i got the solution .. on this : https://www.youtube.com/watch?v=Qtz0Z5otWeI&ab_channel=CodeWithRaghav
+
+
+4.fourth is to open a map using your own app
+--------------------------------------------
+same thing setOnclickListener and add Onclick event and  create Intent
+but here we have to pass "geo" into Uri.parse for getting the location
+and then we attach the text from the editText
+andt then after we start activity by passing the intent.
+this is not properly working
+
+5.now we are gonna use ListView using another activity ..
+-----------------------------------------------------------
+so we're gonna create an empty activity
+so it will create two file 
+	1.ListActivity.java
+	2.activity_list.xml
+
+first we modify the activity_list.xml
+	change constraint view to linearLayout
+	change the orientation to vertical
+	then add the listview from design section of activity_list.xml
+	set the id attribute of the listview.
+
+so here we are ready with the design now let's code.....
+we have to code in ListActivity.java file 
+first we declare listview object and then we get it by find View By id.
+create arrayList for adding items.
+create arrayAdapter which is used to show the list of items
+creating the object of arrayList 
+add the items that you want to show in listview
+creating the object of ArrayAdapter and  passing the resources to it.
+setting the listVIew with the adapter
+that's all.
+
+reffernce : https://www.youtube.com/watch?v=r3MC_LysGyk&ab_channel=NeatRoots
+
+now let's see how to select a particuler item from list and  view it on the main activity.
+for that we have to set the setOnItemClickListener on the listview and give the parameter that new AdapterView.OnItemClickListener()
+then create intent 
+put your content using putExtra()
+setResult code and intent as  per requested code
+then finish()
+
+
+now in the Main activity ,
+generate overrided method onActivityResult
+and then chekc for the reusltCode 
+if the return result code is matched then show it into logcat or in console using the Log.d()
+here we have finished over 5th functionality
+
+
+6.btnStorage
+-----------------
+well i don't know how exactly it works
+but let's see
+first set the onclicklistner and generate onclick mehtod as earlier
+it will take the image and show it in the image view 
+
+7.btnCapture 
+----------
+it will capture the image and show it into image view 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
