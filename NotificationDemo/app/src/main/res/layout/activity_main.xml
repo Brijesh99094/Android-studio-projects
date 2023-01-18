@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+
+    <EditText
+        android:id="@+id/edtTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Enter Notification Title"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/edtSubTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Enter Notification Sub Title"
+        android:inputType="textPersonName" />
+
+    <Button
+        android:id="@+id/btntype1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Type 1 Notification" />
+
+    <Button
+        android:id="@+id/btntype2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Type 2 Notification" />
+
+    <Button
+        android:id="@+id/btntype3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Type 3 Notificationn" />
+
+    <Button
+        android:id="@+id/btnclear"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Clear Notification" />
+</LinearLayout>
